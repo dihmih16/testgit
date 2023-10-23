@@ -1,0 +1,12 @@
+<%- include('../inc/top', { title: 'DETAIL PRODUCT' }); %>
+<div style="text-align: center; margin: 50px;">
+    <h2 style="color: blue;">READ COMIC</h2>
+</div>
+<div class="row" style="margin: 40px;">
+    <section>
+        <div class="container d-flex">
+            <div class="right" style="margin: 60px; margin-left: 100px; padding: 10px;">
+                <iframe src="<%= objComic.content %>" width="800" height="600"></iframe>
+            </div>
+    </section>
+    <%- include('../inc/bottom') %>

@@ -1,0 +1,84 @@
+<%- include('../inc/top'); %>
+  <div class="container">
+    <main class="mt-5 pt-3">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 style="text-align: center; margin-bottom: 65px; color: darkblue;">ACCOUNT</h2>
+        </div>
+
+        <div class="row">
+          <div class="float-lg-end" style="margin-bottom: 10px; margin-left: 20px;"><button type="button"
+            class="btn btn-outline-primary float-lg-end" onclick="location.href='http://localhost:3000/add'">Thêm Tài
+            Khoản</button>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="example" class="table table-striped data-table" style="width: 100%">
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Fullname</th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% data.forEach(data=>{%>
+                      <tr>
+                        <td>
+                          <%=data.username %>
+                        </td>
+
+                        <td>
+                          <%=data.email %>
+                        </td>
+
+                        <td>
+                          <%=data.fullname %>
+                        </td>
+                        <td>
+                          <button type="submit">
+                            <div>
+
+                              <span><a href="/account/update/<%=data._id%>" onclick="return mconfirm_alert(this);"><i
+                                    class="bi bi-pencil-square"></i></i></a></span>
+                            </div>
+                          </button>
+
+                          <button type="submit">
+
+                            <span><a href="/account/delete/<%=data._id%>" onclick="return confirm_alert(this);"> <i
+                                  class="fa fa-trash"></i></a></span>
+                          </button>
+
+                        </td>
+                      </tr>
+                      <%} ) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </main>
+  </div>
+  <script type="text/javascript">
+    function confirm_alert(node) {
+      return confirm("Bạn có chắc chắn xóa không ?");
+    }
+  </script>
+  <script type="text/javascript">
+    function mconfirm_alert(node) {
+      return confirm("Bạn có chắc chắn sửa không ?");
+    }
+  </script>
+  <%- include('../inc/bottom'); %>
+
+    </html>

@@ -1,0 +1,101 @@
+<%- include('../inc/top'); %>
+  <div class="container">
+    <main class="mt-5 pt-3">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 style="text-align: center; margin-bottom: 65px; color: darkblue;">DANH SÁCH TRUYỆN</h2>
+        </div>
+
+        <div class="row">
+          <div class="float-lg-end" style="margin-bottom: 10px; margin-left: 20px;"><button type="button"
+            class="btn btn-outline-primary float-lg-end" onclick="location.href='http://localhost:3000/addcomic'">Thêm
+            Truyện</button></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="example" class="table table-striped data-table" style="width: 100%">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Name</th>
+                      <th>Author</th>
+                      <th>DateTime</th>
+                      <th>Describe</th>
+                      
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% data.forEach(data=>{%>
+                      <tr>
+                        <td>
+                          <img style="width: 100px; height: 100px;" src="<%= data.image %>">
+                        </td>
+                        <td>
+                          <a style="text-decoration: none;" href="/details/<%= data._id %>">
+                            <%=data.name %>
+                          </a>
+                        </td>
+
+                        <td>
+                          <%=data.author %>
+                        </td>
+
+                        <td>
+                          <%=data.year %>
+                        </td>
+
+                        <td>
+                          <%=data.describe %>
+                        </td>
+
+                        
+
+                        <td>
+                          <button type="submit">
+                            <div>
+                              <span><a href="/comic/update/<%=data._id%>" onclick="return mconfirm_alert(this);"><i
+                                    class="bi bi-pencil-square"></i></i></a></span>
+                            </div>
+                          </button>
+
+                          <button type="submit">
+                            <span><a href="/comic/delete/<%=data._id%>" onclick="return confirm_alert(this);"> <i
+                                  class="fa fa-trash"></i></a></span>
+                          </button>
+
+                        </td>
+                      </tr>
+                      <%} ) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </main>
+  </div>
+  <script type="text/javascript">
+    function confirm_alert(node) {
+      return confirm("Bạn có chắc chắn xóa không ?");
+    }
+  </script>
+  <script type="text/javascript">
+    function mconfirm_alert(node) {
+      return confirm("Bạn có chắc chắn sửa không ?");
+    }
+  </script>
+  <script type="text/javascript">
+    function m2confirm_alert(node) {
+      return confirm("Bạn có chắc chắn đọc không ?");
+    }
+  </script>
+  <%- include('../inc/bottom'); %>
+
+    </html>
